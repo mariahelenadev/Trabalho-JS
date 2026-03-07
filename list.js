@@ -1,63 +1,79 @@
-let numeros = [];
+let lista = [];
 
-for (let i = 0; i < 10; i++) {
-    numeros[i] = Math.floor(Math.random() * 100) + 1;
+function adicionarItem(){
+
+let item = document.getElementById("item").value;
+
+lista.push(item);
+
+document.getElementById("resultado").innerHTML =
+"Item adicionado!";
+
 }
 
-console.log("Array original:", numeros);
+function removerItem(){
 
-let crescente = [...numeros];
+let item = document.getElementById("item").value;
 
-for (let i = 0; i < crescente.length - 1; i++) {
-    for (let j = 0; j < crescente.length - 1 - i; j++) {
-        if (crescente[j] > crescente[j + 1]) {
-            let temp = crescente[j];
-            crescente[j] = crescente[j + 1];
-            crescente[j + 1] = temp;
-        }
-    }
+let posicao = lista.indexOf(item);
+
+if(posicao != -1){
+
+lista.splice(posicao,1);
+
+document.getElementById("resultado").innerHTML =
+"Item removido";
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"Item não encontrado";
+
 }
 
-console.log("Ordem crescente:", crescente);
-
-let decrescente = [...crescente];
-let tempArray = [];
-
-for (let i = decrescente.length - 1; i >= 0; i--) {
-    tempArray.push(decrescente[i]);
 }
 
-console.log("Ordem decrescente:", tempArray);
+function pesquisarNome(){
 
-let pares = [];
-let impares = [];
-let primos = [];
+let item = document.getElementById("item").value;
 
-function ehPrimo(num) {
-    if (num < 2) return false;
+let posicao = lista.indexOf(item);
 
-    for (let i = 2; i < num; i++) {
-        if (num % i === 0) {
-            return false;
-        }
-    }
+if(posicao != -1){
 
-    return true;
+document.getElementById("resultado").innerHTML =
+"Item encontrado na posição: " + posicao;
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"Item não encontrado";
+
 }
 
-for (let i = 0; i < numeros.length; i++) {
-
-    if (numeros[i] % 2 === 0) {
-        pares.push(numeros[i]);
-    } else {
-        impares.push(numeros[i]);
-    }
-
-    if (ehPrimo(numeros[i])) {
-        primos.push(numeros[i]);
-    }
 }
 
-console.log("Números pares:", pares);
-console.log("Números ímpares:", impares);
-console.log("Números primos:", primos);
+function pesquisarPosicao(){
+
+let pos = prompt("Digite a posição do item");
+
+if(pos >= 0 && pos < lista.length){
+
+document.getElementById("resultado").innerHTML =
+"Item na posição " + pos + ": " + lista[pos];
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"Posição inválida";
+
+}
+
+}
+
+function mostrarLista(){
+
+document.getElementById("resultado").innerHTML =
+"Lista: " + lista.join(", ");
+
+}
