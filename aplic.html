@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuários</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Cadastro de Usuários</h2>
+
+        <input type="hidden" id="id">
+
+        <input type="text" id="cpf" placeholder="CPF">
+        <input type="text" id="nome" placeholder="Nome">
+        <input type="date" id="dataNascimento">
+        <input type="email" id="email" placeholder="Email">
+
+        <button onclick="salvar()">Salvar</button>
+
+        <h3>Usuários cadastrados</h3>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaUsuarios"></tbody>
+
+        </table>
+
+    </div>
+
+    <script src="aplic.js"></script>
+
+</body>
+</html>
